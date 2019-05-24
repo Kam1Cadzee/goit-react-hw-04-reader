@@ -18,6 +18,7 @@ class Reader extends React.Component {
   handelToggleModal = () => {
     this.setState(state => ({ showModal: !state.showModal }));
   };
+
   prevPublic = () => {
     const { location, history } = this.props;
     const index = +getPageFromProps(this.props);

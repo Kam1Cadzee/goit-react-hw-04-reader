@@ -22,10 +22,15 @@ const Publication = ({ item, onOpen, isShowAll = false }) => {
     </section>
   );
 };
+Publication.defaultProps = {
+  isShowAll: false,
+};
 Publication.propTypes = {
   item: PropTypes.shape({
     text: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
+  onOpen: PropTypes.func.isRequired,
+  isShowAll: PropTypes.bool,
 };
 export default Publication;
