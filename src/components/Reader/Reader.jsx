@@ -8,6 +8,7 @@ import Controls from './Controls/Controls';
 
 import styles from './Reader.module.css';
 import Modal from '../Modal/Modal';
+import ErrorRangePage from './ErrorRangePage/ErrorRangePage';
 
 const getPageFromProps = props => queryString.parse(props.location.search).item;
 class Reader extends React.Component {
@@ -42,6 +43,9 @@ class Reader extends React.Component {
     const { showModal } = this.state;
     const index = getPageFromProps(this.props) - 1;
     const length = items.length - 1;
+    if (index >= items.length || index < 0) {
+      return <ErrorRangePage />;
+    }
     return (
       <div className={styles.reader}>
         <Publication item={items[index]} onOpen={this.handelToggleModal} />
