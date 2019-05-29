@@ -44,7 +44,9 @@ class Reader extends React.Component {
     const index = getPageFromProps(this.props) - 1;
     const length = items.length - 1;
     if (index >= items.length || index < 0) {
-      return <ErrorRangePage />;
+      const { history } = this.props;
+      history.replace('/reader');
+      return null;
     }
     return (
       <div className={styles.reader}>
